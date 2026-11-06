@@ -1,20 +1,18 @@
+class Moteur:
+    def __init__(self, marque, puissance):
+        self.marque = marque
+        self.puissance = puissance
 
-class Employe:
-    def __init__(self, nom, age):
-        self.nom = nom
-        self.age = age
+    def demarrer(self):
+        print("Le moteur demarre !")
 
-    def se_presenter(self):
-        print(f"Je m'appelle {self.nom} et j'ai {self.age} ans.")
+class Voiture(Moteur):
+    def __init__(self, marque, puissance):
+        self.moteur = Moteur(marque, puissance)
 
-class Developpeur(Employe):
-    def __init__(self, nom, age, language):
-        super().__init__(nom, age)
-        self.language = language
+    def demarrer(self):
+        self.moteur.demarrer()
+          
 
-    def se_presenter(self):
-        super().se_presenter()
-        print(f"Ma language de programmation préféré est {self.language} .")
-
-developpeur1 = Developpeur("Soa", 25, "python")
-developpeur1.se_presenter()
+voiture = Voiture("BMW", 250)
+voiture.demarrer()
