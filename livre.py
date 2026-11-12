@@ -7,26 +7,29 @@ class Livre:
     def afficher_details(self):
         print("titre du livre:",self.titre)
         print("Ecrit par:",self.auteur)
-        print("en",self.annee)
+        print(" Paru en:",self.annee)
 
 class Bibliotheque:
-    def __init__(self, liste):
-        self.liste = liste 
+    def __init__(self):
+        self.livres = [] 
 
-    def ajouter_livre(self):
-        
+    def ajouter_livre(self, livre):
+        self.livres.append(livre)
       
 
     def afficher_catalogue(self):
-       for livre in livres:
-        livres.afficher_details()
+       for livre in self.livres:
+        livre.afficher_details()
 
            
-livre1 = Livre("Miguel de Cervantes","Miguel de Cervantes",1605 )         
+livre1 = Livre("Le Petit Prince","Antoine de Saint-Exupéry",1943 )         
 livre2 = Livre("Miguel de Cervantes","Mao Zedong", 1964)
 livre3 = Livre("Un conte de deux villes","Charles Dickens",1859)
-livres = [livre1, livre2, livre3]
+
 
 bibliotheque = Bibliotheque()
-bibliotheque.ajouter_livre(livres)
+bibliotheque.ajouter_livre(livre1)
+bibliotheque.ajouter_livre(livre2)
+bibliotheque.ajouter_livre(livre3)
 
+bibliotheque.afficher_catalogue()
